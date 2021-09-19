@@ -1,0 +1,26 @@
+name: example
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '32 11 * * *'
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Ruby 3.0
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Build Mihari
+        run: |
+          sudo apt-get -yqq install sqlite3 libsqlite3-dev libpq-dev
+          gem install -N pg mysql2
+          gem install -N mihari -v 3.6.0
+      - name: Chekout C2-hunter
+        uses: actions/checkout@v2
+        with: 
+          repository: r0ny123/C2-hunter
+      - name: Run Mihari 
+        run: | 
+         mihari search example.yml --config config.yml
