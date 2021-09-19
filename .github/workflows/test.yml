@@ -16,7 +16,7 @@ jobs:
         run: |
           sudo apt-get -yqq install sqlite3 libsqlite3-dev libpq-dev
           gem install -N pg mysql2
-          gem install -N mihari -v 3.6.0
+          gem install -N mihari
       - name: Chekout C2-hunter
         uses: actions/checkout@v2
         with: 
