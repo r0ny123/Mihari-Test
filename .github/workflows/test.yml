@@ -20,7 +20,7 @@ jobs:
       - name: Chekout C2-hunter
         uses: actions/checkout@v2
         with: 
-          repository: mihari-test
+          repository: r0ny123/mihari-test
       - name: Run Mihari 
         run: | 
          mihari search example.yml --config config.yml
