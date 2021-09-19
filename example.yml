@@ -1,0 +1,7 @@
+title: example.com HTML
+description: A rule to find hosts serve an HTML same as example.com
+queries:
+  - analyzer: censys
+    query: services.http.response.body_hash:"sha1:4a3ce8ee11e091dd7923f4d8c6e5b5e41ec7c047"
+allowed_data_types:
+  - ip
